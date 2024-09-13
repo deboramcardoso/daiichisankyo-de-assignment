@@ -67,7 +67,7 @@ The business folks would really like to have an updated website to provide the n
     
     - 2) ```yoyo apply artifacts/migrations```
 
-    - 3) ```pytests .``` 
+    - 3) ```pytest .``` 
 
 - To remove the containers and images.
     - ```docker-compose down --rmi all``` or ```podman compose down```
