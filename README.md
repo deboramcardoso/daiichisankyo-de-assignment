@@ -119,3 +119,41 @@ Bonus points for:
 
 Please submit to a git repo and provide link to the repo. The main part of the technical test will be a code review of your PR.
 With you walking the team through your code and decisions made.
+
+# Solution
+
+------------------------------------------------------------------
+Jira Ticket
+------------------------------------------------------------------
+
+Title: Improve API with customer interactions metrics
+
+**Mandatory:**
+- Review the provided business requirements and note down any assumptions or questions to clarify during the team meeting.
+- Add new database migration with improved schema.
+- Create a new API endpoint to serve customer interaction metrics.
+- Add filtering options to the endpoint (e.g., filter by channel, date, customer, or customer type).
+- Refactor to use different database management library.
+- Document the system architecture and improvements to present to the business stakeholders.
+- Use Streamlit to visualize API data, and propose it as a tool for internal teams to explore API results in a user-friendly way.
+
+**(Optional) Data Engineer XP Boost: Learning and Career Growth:**
+- Create a basic CI/CD pipeline to automate testing and deployment of the API.
+- Create a autho method for the API.
+- Add detailed logging for better monitoring and debugging.
+- Refactor testing.
+
+Definition of done:
+
+------------------------------------------------------------------
+
+## Overview
+
+## Assumptions
+For the team discussion.
+
+## Approach
+
+## Challenges
+
+## Next Steps
