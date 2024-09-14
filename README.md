@@ -150,11 +150,16 @@ Definition of done:
 ## Overview
 
 ## Assumptions
-- Based on the provided examples, it is reasonable to assume there is a relationship between the Customers table and the External Interactions table.
+1. **Customers table and External interactions table:**
+    - It is reasonable to assume there is a relationship between the tables using the customer ID.
     - This is sufficient to compute the results to return the API response presented as the example.
-- It is unclear how to utilize the Products of discussion table.
+2. **Products of discussion table:**
+    - It is unclear how to utilize it.
     - Not possible to ensure a relatioship between the **Date** field in this table and the **Date Start** field in the External Interactions table.
-        - There is no explicit ID linking the product to a specific customer. Assuming a relationship without confirming with the stakeholders could lead to wrong/misleading results.
+    - There is no explicit ID linking the product to a specific customer. 
+    - Assuming a relationship without confirming with the stakeholders could lead to wrong/misleading results.
+3. **API Response:**
+    - All possible channels should be displayed for each customer, even if there was no interaction via a certain channel.
 
 ## Approach
 
