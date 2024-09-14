@@ -135,6 +135,7 @@ Title: Improve API with customer interactions metrics
 - Add filtering options to the endpoint (e.g., filter by channel, date, customer, or customer type).
 - Refactor testing.
 - Document the system architecture and improvements to present to the business stakeholders.
+- Implement an automated alert for anomalies in customer interactions.
 
 **(Optional) Data Engineer XP Boost: Learning and Career Growth:**
 - Create a basic CI/CD pipeline to automate testing and deployment of the API.
