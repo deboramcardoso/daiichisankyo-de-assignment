@@ -154,13 +154,15 @@ Definition of done:
     - This is sufficient to compute the results to return the API response presented as the example.
 - It is unclear how to utilize the Products of discussion table.
     - Not possible to ensure a relatioship between the **Date** field in this table and the **Date Start** field in the External Interactions table.
-        - There is no explicit ID linking the product to a specific customer. Assuming a relationship without confirming with the stakeholders could lead to wrong results.
+        - There is no explicit ID linking the product to a specific customer. Assuming a relationship without confirming with the stakeholders could lead to wrong/misleading results.
 
 ## Approach
 
 ## Challenges
 
 ## Next Steps
-- **Future Improvements**
+- **Proposal for Future Improvements:**
     - API: add the possibility to retrieve the results for all customers at once (instead of selecting a single customer ID).
     - Products of discussion table: confirm the meaning/purpose of the table. Add unique ID to ensure data integrity.
+    - Create new endpoints to provide higher level metrics:
+        - Number of interactions per channel.
