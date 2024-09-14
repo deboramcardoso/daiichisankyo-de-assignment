@@ -1,5 +1,6 @@
 from flask import Blueprint, current_app, jsonify
 from ..factory import get_statistics_repository
+from collections import defaultdict
 
 
 stats_blueprint = Blueprint("stats_blueprint", __name__)
@@ -11,3 +12,23 @@ def table_count(table_name):
         row = stats_repo.get_number_of_rows(table_name)
         return jsonify({"message": "Number of Rows", "rows": row}), 200
     return jsonify({"message": "Table name not found"}), 404
+
+@stats_blueprint.route("/api/v1/stats/interactions/<customer_id>")
+def customer_interactions_per_channel_count(customer_id):
+    stats_repo = get_statistics_repository(current_app.config)
+    query_result = stats_repo.get_total_interactions_per_customer_and_channel(customer_id)
+
+    result = {"data": {}}
+    interactions = {}
+    
+    for record in query_result:
+        event = record.get("event")
+        total_interactions = record.get("total_interactions")
+        interactions[event] = total_interactions
+
+    result["data"] = {
+        "customer_id": customer_id,
+        "interactions": interactions
+    }
+
+    return jsonify(result), 200
