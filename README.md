@@ -137,11 +137,8 @@ Jira Ticket
 - Document how to utilize the new endpoint and propose improvements/next steps to discuss.
 
 **Definition of done**:
-- A new database migration with the improved schema has been successfully applied.
-- The new API endpoint for customer interaction metrics is implemented with date filtering options and necessary validations.
-- Unit tests are written to cover the core functionality and all tests pass.
-- API usage is documented, including instructions and error handling.
-- Business requirements have been clarified and the team has agreed on the next steps/proposed improvements.
+
+The improved schema has been successfully migrated, and the new API endpoint for customer interaction metrics, including date filtering and validations, is implemented. All unit tests pass, documentation is complete, and business requirements are clarified with agreed next steps.
 
 ------------------------------------------------------------------
 
