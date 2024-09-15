@@ -128,14 +128,20 @@ Jira Ticket
 
 **Title**: Improve API with customer interactions metrics
 
-- Review the provided business requirements and note down any assumptions or questions to clarify during the team meeting.
+- Review the requirements and note down any assumptions or questions to clarify during the team meeting.
 - Add new database migration with improved schema.
 - Create a new API endpoint to serve customer interaction metrics.
-- Add filtering options to the endpoint (e.g., filter by date).
-- Refactor testing.
-- Document the system architecture and improvements to present to the business stakeholders.
+- Add date filtering options to the endpoint.
+- Add API validations.
+- Create new unit tests.
+- Document how to utilize the new endpoint and propose improvements/next steps to discuss.
 
-Definition of done: 
+**Definition of done**:
+- A new database migration with the improved schema has been successfully applied.
+- The new API endpoint for customer interaction metrics is implemented with date filtering options and necessary validations.
+- Unit tests are written to cover the core functionality and all tests pass.
+- API usage is documented, including instructions and error handling.
+- Business requirements have been clarified and the team has agreed on the next steps/proposed improvements.
 
 ------------------------------------------------------------------
 
