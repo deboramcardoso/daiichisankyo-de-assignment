@@ -15,17 +15,28 @@ def table_count(table_name):
     return jsonify({"message": "Table name not found"}), 404
 
 
-@stats_blueprint.route("/api/v1/stats/interactions/<customer_id>")
+@stats_blueprint.route("/api/v1/stats/interactions/<customer_id>", methods=["GET"])
 def customer_interactions_per_channel_count(customer_id):
 
     # Get optional date filters from the query parameters
     start_date = request.args.get("start_date")
     end_date = request.args.get("end_date")
-    channel = request.args.get("channel")
 
     stats_repo = get_statistics_repository(current_app.config)
+
+    if not customer_id.isdigit() or int(customer_id) <= 0:
+        return jsonify({"error": "Invalid customer_id provided"}), 400
+    if not stats_repo.check_if_customer_exists(customer_id):
+        return jsonify({"message": "Customer not found"}), 404
+    if start_date and not stats_repo.validate_date(start_date):
+        return jsonify({"error": "Invalid start_date format. Use YYYY-MM-DD."}), 400
+    if end_date and not stats_repo.validate_date(end_date):
+        return jsonify({"error": "Invalid end_date format. Use YYYY-MM-DD."}), 400
+    if start_date and end_date and start_date > end_date:
+        return jsonify({"error": "start_date cannot be later than end_date."}), 400
+
     query_result = stats_repo.get_total_interactions_per_customer_and_channel(
-        customer_id, start_date, end_date, channel
+        customer_id, start_date, end_date
     )
 
     result = {"data": {}}
@@ -36,6 +47,5 @@ def customer_interactions_per_channel_count(customer_id):
         total_interactions = record.get("total_interactions")
         interactions[event] = total_interactions
 
-    result["data"] = {"customer_id": customer_id, "interactions": interactions}
-
+    result["data"] = {"customer_id": int(customer_id), "interactions": interactions}
     return jsonify(result), 200

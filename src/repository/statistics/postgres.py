@@ -1,10 +1,15 @@
 from ..base import statisticsRepository
 from ...utils.db.postgres import QueryRunner
 from ...config import Config
+from datetime import datetime
 
 TABLES = ["customers", "products", "interactions"]
 
 TABLE_COUNT_SQL = """SELECT COUNT(*) FROM {table_name}; """
+
+CHECK_CUSTOMER_SQL = (
+    """SELECT customer_id FROM customers WHERE customer_id = %(customer_id)s """
+)
 
 
 class PostgresStatisticsRepository(statisticsRepository):
@@ -27,7 +32,9 @@ class PostgresStatisticsRepository(statisticsRepository):
     def check_table_name(self, table_name) -> bool:
         return table_name in TABLES
 
-    def get_total_interactions_per_customer_and_channel(self, customer_id, start_date=None, end_date=None):
+    def get_total_interactions_per_customer_and_channel(
+        self, customer_id, start_date=None, end_date=None
+    ):
         """
         Compute the number of interactions per customer per channel.
 
@@ -57,12 +64,13 @@ class PostgresStatisticsRepository(statisticsRepository):
 
         # Apply date filters if provided
         if start_date:
-            CUSTOMER_INTERACTIONS_PER_CHANNEL_SQL += " AND i.date_start >= %(start_date)s"
+            CUSTOMER_INTERACTIONS_PER_CHANNEL_SQL += (
+                " AND i.date_start >= %(start_date)s"
+            )
             query_params["start_date"] = start_date
         if end_date:
             CUSTOMER_INTERACTIONS_PER_CHANNEL_SQL += " AND i.date_start <= %(end_date)s"
             query_params["end_date"] = end_date
-
 
         CUSTOMER_INTERACTIONS_PER_CHANNEL_SQL += """
         GROUP BY
@@ -80,7 +88,19 @@ class PostgresStatisticsRepository(statisticsRepository):
         """
 
         result = self.runner.execute_query(
-            CUSTOMER_INTERACTIONS_PER_CHANNEL_SQL,
-            params=query_params
+            CUSTOMER_INTERACTIONS_PER_CHANNEL_SQL, params=query_params
         )
         return result
+
+    def check_if_customer_exists(self, customer_id):
+        result = self.runner.execute_query(
+            CHECK_CUSTOMER_SQL, params={"customer_id": customer_id}
+        )
+        return True if result else False
+
+    def validate_date(self, date_string):
+        try:
+            datetime.strptime(date_string, "%Y-%m-%d")
+            return True
+        except ValueError:
+            return False
