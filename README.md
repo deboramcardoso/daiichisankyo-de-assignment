@@ -160,6 +160,24 @@ The improved schema has been successfully migrated, and the new API endpoint for
 
 ## Approach
 
+Before diving into the implementation, I took time to prepare and ensure everything was set up correctly. This involved three key steps:
+
+1. **Environment Setup**:
+I set up a GitHub repository, added the necessary files, created a virtual environment, and followed the provided instructions to ensure the existing code worked smoothly. This included minor adjustments, such as upgrading to Python 3.9 and installing dependencies like `psycopg2`. After these adjustments, I successfully ran the application with the initial endpoint.
+
+2. **Understanding Requirements and Data**:
+I carefully reviewed the provided requirements and data, ensuring I understood the relationships between tables and identifying any assumptions I needed to make before starting the implementation. This helped ensure my solution would align with the business needs.
+
+3. **Technical Preparation**:
+As I don’t have direct experience with creating APIs or using Docker, I took some time to learn these concepts. This gave me some basis to proceed with the implementation.
+
+Once I had completed this preparation, I proceeded with the following steps to implement the solution:
+
+- Created a new route for the API endpoint with a simple logic to verify it worked.
+- Incrementally added complexity to the code to achieve the desired outcome.
+- Implemented filters, validations, and unit tests to ensure robustness.
+- Updated the documentation throughout the implementation process to reflect the evolving functionality.
+
 ## Challenges
 
 ## API Usage Instructions
