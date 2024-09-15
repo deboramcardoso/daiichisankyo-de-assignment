@@ -144,20 +144,6 @@ The improved schema has been successfully migrated, and the new API endpoint for
 
 ------------------------------------------------------------------
 
-## Overview
-
-## Assumptions
-1. **Customers table and External interactions table:**
-    - It is reasonable to assume there is a relationship between the tables using the customer ID.
-    - This is sufficient to compute the results to return the API response presented as the example.
-2. **Products of discussion table:**
-    - It is unclear how to utilize it.
-    - Not possible to ensure a relatioship between the **Date** field in this table and the **Date Start** field in the External Interactions table.
-    - There is no explicit ID linking the product to a specific customer. 
-    - Assuming a relationship without confirming with the stakeholders could lead to wrong/misleading results.
-3. **API Response:**
-    - All possible channels should be displayed for each customer, even if there was no interaction via a certain channel.
-
 ## Approach
 
 Before diving into the implementation, I took time to prepare and ensure everything was set up correctly. This involved three key steps:
@@ -177,6 +163,18 @@ Once I had completed this preparation, I proceeded with the following steps to i
 - Incrementally added complexity to the code to achieve the desired outcome.
 - Implemented filters, validations, and unit tests to ensure robustness.
 - Updated the documentation throughout the implementation process to reflect the evolving functionality.
+
+## Assumptions
+1. **Customers table and External interactions table:**
+    - It is reasonable to assume there is a relationship between the tables using the customer ID.
+    - This is sufficient to compute the results to return the API response presented as the example.
+2. **Products of discussion table:**
+    - It is unclear how to utilize it.
+    - Not possible to ensure a relatioship between the **Date** field in this table and the **Date Start** field in the External Interactions table.
+    - There is no explicit ID linking the product to a specific customer. 
+    - Assuming a relationship without confirming with the stakeholders could lead to wrong/misleading results.
+3. **API Response:**
+    - All possible channels should be displayed for each customer, even if there was no interaction via a certain channel.
 
 ## Challenges
 
