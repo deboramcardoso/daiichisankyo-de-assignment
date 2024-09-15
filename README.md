@@ -126,21 +126,14 @@ With you walking the team through your code and decisions made.
 Jira Ticket
 ------------------------------------------------------------------
 
-Title: Improve API with customer interactions metrics
+**Title**: Improve API with customer interactions metrics
 
-**Mandatory:**
 - Review the provided business requirements and note down any assumptions or questions to clarify during the team meeting.
 - Add new database migration with improved schema.
 - Create a new API endpoint to serve customer interaction metrics.
-- Add filtering options to the endpoint (e.g., filter by channel, date, customer, or customer type).
+- Add filtering options to the endpoint (e.g., filter by date).
 - Refactor testing.
 - Document the system architecture and improvements to present to the business stakeholders.
-
-**Optional:**
-- Implement an automated alert for anomalies in customer interactions.
-- Create a autho method for the API.
-- Add detailed logging for better monitoring and debugging.
-- Refactor to use different database management library.
 
 Definition of done: 
 
