@@ -165,16 +165,22 @@ Once I had completed this preparation, I proceeded with the following steps to i
 - Updated the documentation throughout the implementation process to reflect the evolving functionality.
 
 ## Assumptions
-1. **Customers table and External interactions table:**
-    - It is reasonable to assume there is a relationship between the tables using the customer ID.
-    - This is sufficient to compute the results to return the API response presented as the example.
-2. **Products of discussion table:**
-    - It is unclear how to utilize it.
-    - Not possible to ensure a relatioship between the **Date** field in this table and the **Date Start** field in the External Interactions table.
-    - There is no explicit ID linking the product to a specific customer. 
-    - Assuming a relationship without confirming with the stakeholders could lead to wrong/misleading results.
-3. **API Response:**
-    - All possible channels should be displayed for each customer, even if there was no interaction via a certain channel.
+It is important to highlight the following assumptions to provide clarity and context for certain decisions made during the implementation:
+
+1. **Customers Table and External Interactions Table**:
+- It is assumed that there is a direct relationship between these two tables through the `customer_id`. 
+- This relationship is sufficient to compute the metrics and generate the API response as outlined in the example provided.
+
+2. **Products of Discussion Table**:
+- The purpose and relationship of this table are unclear. 
+- It is not possible to establish a direct connection between the `Date` field in this table and the `Date Start` field in the External Interactions table. 
+- Additionally, there is no explicit `ID` linking the product to a specific customer. 
+- Assuming a relationship without further clarification from stakeholders could lead to inaccurate or misleading results.
+- Therefore, the table will not be used for this context.
+
+3. **API Response**:
+- The API should display all possible channels for the selected customer, even if there are no interactions recorded via a particular channel.
+- Since all channels should be displayed, it does not make sense to have the option to filter the result by channel.
 
 ## Challenges
 
