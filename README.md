@@ -157,7 +157,28 @@ Definition of done:
 
 ## Challenges
 
+## API Usage Instructions
+- **Endpoint:** `/api/v1/stats/interactions/<customer_id>`
+- **Method:** `GET`
+- **Description:** Retrieves the total number of interactions for a selected customer across different channels. Optional query parameters can be used to filter the interactions by date.
+
+**Parameters:**
+1. **Path Parameter:**
+- `customer_id` (required): The unique identifier of the customer.
+    - **Type:** Integer
+    - **Example:** `4`
+2. **Query Parameters:** (Optional)
+- `start_date`
+    - **Type:** String (format: `YYYY-MM-DD`)
+    - **Example:** `2019-10-01`
+- `end_date`
+    - **Type:** String (format: `YYYY-MM-DD`)
+    - **Example:** `2020-03-05`
+
 ## Next Steps
+- **To align with the business stakeholders:**
+    - Additional metrics:
+        - 
 - **Proposal for Future Improvements:**
     - API: add the possibility to retrieve the results for all customers at once (instead of selecting a single customer ID).
     - Products of discussion table: confirm the meaning/purpose of the table. Add unique ID to ensure data integrity.
