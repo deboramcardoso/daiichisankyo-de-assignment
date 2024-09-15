@@ -136,14 +136,13 @@ Title: Improve API with customer interactions metrics
 - Refactor testing.
 - Document the system architecture and improvements to present to the business stakeholders.
 
-**(Optional) Data Engineer XP Boost: Learning and Career Growth:**
-- Create a basic CI/CD pipeline to automate testing and deployment of the API.
+**Optional:**
+- Implement an automated alert for anomalies in customer interactions.
 - Create a autho method for the API.
 - Add detailed logging for better monitoring and debugging.
 - Refactor to use different database management library.
-- Implement an automated alert for anomalies in customer interactions.
 
-Definition of done:
+Definition of done: 
 
 ------------------------------------------------------------------
 
