@@ -122,6 +122,8 @@ With you walking the team through your code and decisions made.
 
 # Solution
 
+The scope of the Jira ticket presented below was defined based on the context and requirements provided, with a focus on creating a new API endpoint to return customer interaction metrics per channel. The goal was to ensure the new endpoint is robust, meets the business needs, and aligns with the timeline for the ticket, while keeping the scope manageable and focused. Prioritization was given to core functionality, acknowledging that other important tasks, such as authentication and CI/CD, can be addressed in future iterations.
+
 ------------------------------------------------------------------
 Jira Ticket
 ------------------------------------------------------------------
