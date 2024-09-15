@@ -163,11 +163,12 @@ Definition of done:
 - **Description:** Retrieves the total number of interactions for a selected customer across different channels. Optional query parameters can be used to filter the interactions by date.
 
 **Parameters:**
+
 1. **Path Parameter:**
 - `customer_id` (required): The unique identifier of the customer.
     - **Type:** Integer
     - **Example:** `4`
-2. **Query Parameters:** (Optional)
+2. **Query Parameters:** (optional)
 - `start_date`
     - **Type:** String (format: `YYYY-MM-DD`)
     - **Example:** `2019-10-01`
@@ -175,10 +176,63 @@ Definition of done:
     - **Type:** String (format: `YYYY-MM-DD`)
     - **Example:** `2020-03-05`
 
+**Example Request**
+
+- **URL:** `/api/v1/stats/interactions/4?start_date=2019-10-01&end_date=2020-03-05`
+- **Method:** `GET`
+
+**Response:**
+- Success (200)
+
+**Example Response:**
+
+```json
+{
+    "data": {
+        "customer_id": 4,
+        "interactions": {
+            "Bird": 1,
+            "Boat": 0,
+            "Call": 1,
+            "Email": 0,
+            "Post": 0
+        }
+    }
+}
+```
+
+- **Error Responses:**
+
+1. **400 Bad Request**
+- If `customer_id` is invalid (e.g., not a positive integer) or if the date format is incorrect.
+
+**Example Responses:**
+
+```json
+{
+    "error": "Invalid customer_id provided"
+}
+```
+```json
+{
+    "error": "Invalid start_date format. Use YYYY-MM-DD."
+}
+```
+2. **404 Not Found**
+- If the specified `customer_id` does not exist in the database.
+
+**Example Response:**
+
+```json
+{
+    "error": "Customer not found"
+}
+```
+
+
 ## Next Steps
 - **To align with the business stakeholders:**
-    - Additional metrics:
-        - 
+
 - **Proposal for Future Improvements:**
     - API: add the possibility to retrieve the results for all customers at once (instead of selecting a single customer ID).
     - Products of discussion table: confirm the meaning/purpose of the table. Add unique ID to ensure data integrity.
