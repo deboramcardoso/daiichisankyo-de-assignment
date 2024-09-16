@@ -5,7 +5,7 @@ from datetime import datetime
 
 TABLES = ["customers", "products", "interactions"]
 
-TABLE_COUNT_SQL = """SELECT COUNT(*) FROM %(table_name)s; """
+TABLE_COUNT_SQL = """SELECT COUNT(*) FROM {table_name}; """
 
 CHECK_CUSTOMER_SQL = (
     """SELECT customer_id FROM customers WHERE customer_id = %(customer_id)s """
@@ -25,7 +25,7 @@ class PostgresStatisticsRepository(statisticsRepository):
         """
 
         result = self.runner.execute_query(
-            TABLE_COUNT_SQL, params={"table_name": table_name}, return_dict=False
+            TABLE_COUNT_SQL.format(table_name = table_name), return_dict=False
         )
         return result[0][0]
 
