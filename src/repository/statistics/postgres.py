@@ -5,7 +5,7 @@ from datetime import datetime
 
 TABLES = ["customers", "products", "interactions"]
 
-TABLE_COUNT_SQL = """SELECT COUNT(*) FROM {table_name}; """
+TABLE_COUNT_SQL = """SELECT COUNT(*) FROM %(table_name)s; """
 
 CHECK_CUSTOMER_SQL = (
     """SELECT customer_id FROM customers WHERE customer_id = %(customer_id)s """
@@ -21,11 +21,11 @@ class PostgresStatisticsRepository(statisticsRepository):
         Return the number of content entries in the database.
 
         Returns:
-            Tuple with the number of content entries.
+            Integer with the number of content entries.
         """
 
         result = self.runner.execute_query(
-            TABLE_COUNT_SQL.format(table_name=table_name), return_dict=False
+            TABLE_COUNT_SQL, params={"table_name": table_name}, return_dict=False
         )
         return result[0][0]
 
@@ -39,6 +39,7 @@ class PostgresStatisticsRepository(statisticsRepository):
         Compute the number of interactions per customer per channel.
 
         Returns:
+            List of dictionaries with the total customer interactions per channel.
 
         """
         CUSTOMER_INTERACTIONS_PER_CHANNEL_SQL = """
@@ -97,4 +98,3 @@ class PostgresStatisticsRepository(statisticsRepository):
             CHECK_CUSTOMER_SQL, params={"customer_id": customer_id}
         )
         return True if result else False
-    
