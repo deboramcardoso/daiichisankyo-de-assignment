@@ -1,6 +1,6 @@
 from flask import Blueprint, current_app, jsonify, request
 from ..factory import get_statistics_repository
-from collections import defaultdict
+from src.utils.validation import validate_date
 
 
 stats_blueprint = Blueprint("stats_blueprint", __name__)
@@ -24,13 +24,14 @@ def customer_interactions_per_channel_count(customer_id):
 
     stats_repo = get_statistics_repository(current_app.config)
 
+    # To improve in the future: have the following validations as part of a function.
     if not customer_id.isdigit() or int(customer_id) <= 0:
         return jsonify({"error": "Invalid customer_id provided"}), 400
     if not stats_repo.check_if_customer_exists(customer_id):
         return jsonify({"message": "Customer not found"}), 404
-    if start_date and not stats_repo.validate_date(start_date):
+    if start_date and not validate_date(start_date):
         return jsonify({"error": "Invalid start_date format. Use YYYY-MM-DD."}), 400
-    if end_date and not stats_repo.validate_date(end_date):
+    if end_date and not validate_date(end_date):
         return jsonify({"error": "Invalid end_date format. Use YYYY-MM-DD."}), 400
     if start_date and end_date and start_date > end_date:
         return jsonify({"error": "start_date cannot be later than end_date."}), 400
