@@ -135,12 +135,12 @@ Jira Ticket
 - Create a new API endpoint to serve customer interaction metrics.
 - Add date filtering options to the endpoint.
 - Add API validations.
-- Create new unit tests.
+- Create new integration tests.
 - Document how to utilize the new endpoint and propose improvements/next steps to discuss.
 
 **Definition of done**:
 
-The improved schema has been successfully migrated, and the new API endpoint for customer interaction metrics, including date filtering and validations, is implemented. All unit tests pass, documentation is complete, and business requirements are clarified with agreed next steps.
+The improved schema has been successfully migrated, and the new API endpoint for customer interaction metrics, including date filtering and validations, is implemented. All integration tests pass, documentation is complete, and business requirements are clarified with agreed next steps.
 
 ------------------------------------------------------------------
 
@@ -161,7 +161,7 @@ Once I had completed this preparation, I proceeded with the following steps to i
 
 - Created a new route for the API endpoint with a simple logic to verify it worked.
 - Incrementally added complexity to the code to achieve the desired outcome.
-- Implemented filters, validations, and unit tests to ensure robustness.
+- Implemented filters, validations, and integration tests to ensure robustness.
 - Updated the documentation throughout the implementation process to reflect the evolving functionality.
 
 ## Assumptions
@@ -182,7 +182,10 @@ It is important to highlight the following assumptions to provide clarity and co
     - The API should display all possible channels for the selected customer, even if there are no interactions recorded via a particular channel.
     - Since all channels should be displayed, it does not make sense to have the option to filter the result by channel.
 
-## Challenges
+## Learnings & Challenges
+- **No previous direct experience with API design and Docker**
+- **Defining the scope of the Jira ticket**
+
 
 ## API Usage Instructions
 - **Endpoint:** `/api/v1/stats/interactions/<customer_id>`
@@ -209,7 +212,7 @@ It is important to highlight the following assumptions to provide clarity and co
 - **Method:** `GET`
 
 **Response:**
-- Success (200)
+- **200 Success**
 
 **Example Response:**
 
