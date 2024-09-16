@@ -92,15 +92,9 @@ class PostgresStatisticsRepository(statisticsRepository):
         )
         return result
 
-    def check_if_customer_exists(self, customer_id):
+    def check_if_customer_exists(self, customer_id) -> bool:
         result = self.runner.execute_query(
             CHECK_CUSTOMER_SQL, params={"customer_id": customer_id}
         )
         return True if result else False
-
-    def validate_date(self, date_string):
-        try:
-            datetime.strptime(date_string, "%Y-%m-%d")
-            return True
-        except ValueError:
-            return False
+    
