@@ -149,7 +149,7 @@ The improved schema has been successfully migrated, and the new API endpoint for
 Before the implementation, some time was necessary to prepare and ensure everything was set up correctly. This required three key steps:
 
 1. **Environment Setup**:
-The GitHub repository has been set up, the necessary files have been added, a virtual environment has been created, and the provided instructions have been followed to ensure the existing code works smoothly. This included minor adjustments, such as upgrading to Python 3.9 and installing dependencies like `psycopg2`. After these adjustments, the application has been successfully run with the existing endpoint.
+The GitHub repository has been with the necessary files, a virtual environment has been created, and the provided instructions have been followed to ensure the existing code works smoothly. This included minor adjustments, such as upgrading to Python 3.9. After these adjustments, the application has been successfully run with the existing endpoint.
 
 2. **Understanding Requirements and Data**:
 The given requirements and data have been reviewed, ensuring the understanding of the relationships between tables and identifying any necessary assumptions to be made before starting the implementation. This helped ensure the solution would align with the business needs.
