@@ -146,18 +146,18 @@ The improved schema has been successfully migrated, and the new API endpoint for
 
 ## Approach
 
-Before diving into the implementation, I took time to prepare and ensure everything was set up correctly. This involved three key steps:
+Before the implementation, some time was necessary to prepare and ensure everything was set up correctly. This required three key steps:
 
 1. **Environment Setup**:
-I set up a GitHub repository, added the necessary files, created a virtual environment, and followed the provided instructions to ensure the existing code worked smoothly. This included minor adjustments, such as upgrading to Python 3.9 and installing dependencies like `psycopg2`. After these adjustments, I successfully ran the application with the initial endpoint.
+The GitHub repository has been set up, the necessary files have been added, a virtual environment has been created, and the provided instructions have been followed to ensure the existing code works smoothly. This included minor adjustments, such as upgrading to Python 3.9 and installing dependencies like `psycopg2`. After these adjustments, the application has been successfully run with the existing endpoint.
 
 2. **Understanding Requirements and Data**:
-I carefully reviewed the provided requirements and data, ensuring I understood the relationships between tables and identifying any assumptions I needed to make before starting the implementation. This helped ensure my solution would align with the business needs.
+The given requirements and data have been reviewed, ensuring the understanding of the relationships between tables and identifying any necessary assumptions to be made before starting the implementation. This helped ensure the solution would align with the business needs.
 
 3. **Technical Preparation**:
-As I don’t have direct experience with creating APIs or using Docker, I took some time to learn these concepts. This gave me some basis to proceed with the implementation.
+Due to the lack of direct experience with creating APIs or using Docker, some time was needed to learn general concepts. This provided an important basis for proceeding with the implementation.
 
-Once I had completed this preparation, I proceeded with the following steps to implement the solution:
+Once the preparation was complete, the steps below followed:
 
 - Created a new route for the API endpoint with a simple logic to verify it worked.
 - Incrementally added complexity to the code to achieve the desired outcome.
@@ -182,11 +182,6 @@ It is important to highlight the following assumptions to provide clarity and co
     - The API should display all possible channels for the selected customer, even if there are no interactions recorded via a particular channel.
     - Since all channels should be displayed, it does not make sense to have the option to filter the result by channel.
 
-## Learnings & Challenges
-- **No previous direct experience with API design and Docker**
-- **Defining the scope of the Jira ticket**
-
-
 ## API Usage Instructions
 - **Endpoint:** `/api/v1/stats/interactions/<customer_id>`
 - **Method:** `GET`
@@ -209,7 +204,6 @@ It is important to highlight the following assumptions to provide clarity and co
 **Example Request**
 
 - **URL:** `/api/v1/stats/interactions/4?start_date=2019-10-01&end_date=2020-03-05`
-- **Method:** `GET`
 
 **Response:**
 - **200 Success**
@@ -259,12 +253,32 @@ It is important to highlight the following assumptions to provide clarity and co
 }
 ```
 
-
 ## Next Steps
-- **To align with the business stakeholders:**
+- **To align with stakeholders/in the team meeting:**
+    - Is there a relationship between the Products of discussion table and the External Interactions table?
+    - If confirmed that the product of discussion is the topic related to a customer interaction, would it make sense to include as an additional filter option?
+    - What is the meaning of each customer type? Is it possible for a customer to change its type?
 
-- **Proposal for Future Improvements:**
-    - API: add the possibility to retrieve the results for all customers at once (instead of selecting a single customer ID).
-    - Products of discussion table: confirm the meaning/purpose of the table. Add unique ID to ensure data integrity.
-    - Create new endpoints to provide higher level metrics:
+- **Proposal for future improvements:**
+    - **New endpoints to provide higher level metrics**
+        - Number of interactions per customer.
         - Number of interactions per channel.
+        - Number of interactions per topic of discussion (if confirmed the relationship).
+        - Number of interactions per customer type.
+        - Number of customers per customer type.
+    - **Products of discussion table:** 
+        - Add unique ID to ensure data integrity.
+    - **Analytics:**
+        - If there is an interest in a more in-depth analysis that other teams could work on, we could add the possibility of retrieving the results for all customers simultaneously (instead of selecting a single customer ID).
+        - Customized dashboards could be created and a historical analysis could be performed.
+
+**Notes:** 
+1. Having this alignment is important for refining the current solution and defining the project’s timeline. Once clarified, we can outline future tasks, organize the Jira tickets related to the Jira Epic, and establish a clearer timeline for the overall project, ensuring smooth execution and avoiding potential delays.
+2. The proposed new endpoints and higher-level metrics could provide valuable insights for decision-makers, helping to optimize customer engagement strategies and improve operational efficiency. In addition, the suggested analytics enhancements could form the basis of more comprehensive dashboards for internal stakeholders.
+
+## Learnings & Challenges
+- **Scope definition**
+    -  
+- **Lack of direct experience with some topics**
+    - API design
+    - Docker
