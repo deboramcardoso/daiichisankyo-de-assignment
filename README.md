@@ -275,10 +275,3 @@ It is important to highlight the following assumptions to provide clarity and co
 **Notes:** 
 1. Having this alignment is important for refining the current solution and defining the project’s timeline. Once clarified, we can outline future tasks, organize the Jira tickets related to the Jira Epic, and establish a clearer timeline for the overall project, ensuring smooth execution and avoiding potential delays.
 2. The proposed new endpoints and higher-level metrics could provide valuable insights for decision-makers, helping to optimize customer engagement strategies and improve operational efficiency. In addition, the suggested analytics enhancements could form the basis of more comprehensive dashboards for internal stakeholders.
-
-## Learnings & Challenges
-- **Scope definition**
-    -  
-- **Lack of direct experience with some topics**
-    - API design
-    - Docker
